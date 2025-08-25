@@ -78,6 +78,7 @@ configs/                # Configuration files
 
 ## Next Steps
 
+- Fix metrics
 - Add real device drivers (Modbus, OPC UA)
 - Implement circuit breaker pattern
 - Add persistent storage for readings
