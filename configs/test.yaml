@@ -1,0 +1,20 @@
+http_addr: ":8081"
+shutdown_wait: "3s"
+
+broker:
+  mqtt_url: "tcp://localhost:1883"
+  base_topic: "plant/readings"
+  client_id: "edgelink-dev"
+
+devices:
+  - id: "press-1"
+    type: "fake"
+    poll_every: "1s"
+    jitter: 0.05
+    metric_names: ["temp_c", "pressure_bar"]
+
+  - id: "press-2"
+    type: "fake"
+    poll_every: "750ms"
+    jitter: 0.03
+    metric_names: ["temp_c", "vibration_rms"]

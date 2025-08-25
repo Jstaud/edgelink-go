@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  # MQTT broker for message passing
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports: 
+      - "1883:1883"
+    # Run with minimal config (no auth for development)
+    command: ["mosquitto", "-c", "/mosquitto-no-auth.conf"]
+    volumes:
+      - type: bind
+        source: /dev/null
+        target: /mosquitto-no-auth.conf
+
+  # Our EdgeLink application
+  edgelink:
+    build: .
+    depends_on: 
+      - mosquitto
+    ports:
+      - "8080:8080"
+    environment:
+      - GOOS=linux
