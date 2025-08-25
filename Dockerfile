@@ -1,7 +1,7 @@
 # Multi-stage Docker build for efficient images
 
 # Build stage
-FROM golang:1.25 AS build
+FROM docker.io/golang:1.23 AS build
 WORKDIR /src
 
 # Copy go mod files first (for better Docker layer caching)

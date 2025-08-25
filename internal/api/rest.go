@@ -45,7 +45,7 @@ func NewREST(store Store) http.Handler {
 	// Placeholder for metrics endpoint (prometheus temporarily disabled)
 	r.Get("/metrics", func(w http.ResponseWriter, _ *http.Request) {
 		w.WriteHeader(200)
-		w.Write([]byte("# Metrics temporarily disabled\n"))
+		_, _ = w.Write([]byte("# Metrics temporarily disabled\n"))
 	})
 	
 	return r
